@@ -23,12 +23,22 @@ const galleryElem = document.querySelector(".gallery");
 
 galleryElem.insertAdjacentHTML("beforeend", galleryMarkup);
 
+const modalImage = basicLightbox.create(`<img width="800">`);
+
 function zoomImage(event) {
     event.preventDefault();
 
     const picOrigin = event.target.getAttribute("data-source");
+
+    modalImage.element().firstElementChild.innerHTML = `<img src=${picOrigin} width="800">`; // modalImage = div >> div >> img
+
+    modalImage.show();
+
+    document.addEventListener('keydown', (event) => {
+    if (event.code === "Escape") {
+       modalImage.close() 
+    }
+});
 }
 
 galleryElem.addEventListener("click", zoomImage);
-
-//console.log(galleryItems);
