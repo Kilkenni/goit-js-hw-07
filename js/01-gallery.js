@@ -27,6 +27,9 @@ const modalImage = basicLightbox.create(`<img width="800">`);
 
 function zoomImage(event) {
     event.preventDefault();
+    if (event.target.tagName != "IMG") {
+        return; //We limit our handler by processing clicks on gallery images only. Any other clicks are ignored
+    }
 
     const picOrigin = event.target.getAttribute("data-source");
 
