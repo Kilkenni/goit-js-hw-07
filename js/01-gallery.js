@@ -9,9 +9,9 @@ galleryItems.forEach((galleryItem) => {
         <a class="gallery__link" href=${galleryItem.original}>
             <img
             class="gallery__image"
-            src=${galleryItem.preview}
-            data-source=${galleryItem.original}
-            alt=${galleryItem.description}
+            src="${galleryItem.preview}"
+            data-source="${galleryItem.original}"
+            alt="${galleryItem.description}"
             />
         </a>
     </div>`;
